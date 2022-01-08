@@ -1,0 +1,59 @@
+alias: Stair light motion activation
+description: ''
+trigger:
+  - platform: state
+    entity_id: binary_sensor.esphome_cabinet_motion
+    from: 'off'
+    to: 'on'
+    id: cabinet
+  - platform: state
+    entity_id: binary_sensor.guest_motion
+    from: 'off'
+    to: 'on'
+    id: guest
+condition:
+  - condition: numeric_state
+    entity_id: sensor.guest_blinds_left_light
+    below: '5'
+action:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: cabinet
+          - condition: state
+            entity_id: light.stair_light
+            state: 'off'
+        sequence:
+          - service: light.turn_on
+            target:
+              entity_id: light.stair_light
+            data:
+              effect: Rise light
+      - conditions:
+          - condition: trigger
+            id: guest
+          - condition: state
+            entity_id: light.stair_light
+            state: 'off'
+        sequence:
+          - service: light.turn_on
+            target:
+              entity_id: light.stair_light
+            data:
+              effect: Falling light
+    default:
+      - service: light.turn_on
+        target:
+          entity_id: light.stair_light
+        data:
+          effect: Simple light
+  - delay:
+      hours: 0
+      minutes: 5
+      seconds: 0
+      milliseconds: 0
+  - service: light.turn_off
+    target:
+      entity_id: light.stair_light
+    data: {}
+mode: restart
