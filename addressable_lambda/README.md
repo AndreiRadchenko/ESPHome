@@ -10,9 +10,11 @@ https://user-images.githubusercontent.com/25689113/148655637-32b09107-9162-4490-
 
 https://user-images.githubusercontent.com/25689113/148655689-6d87c76c-4f25-4c28-ab43-223c05c54301.mov
 
-Solarized dark             |  Solarized Ocean
+## ESPHome and Home Assistant config files
+
+ESPHome config file            |  [cabinet_light.yaml](https://github.com/AndreiRadchenko/ESPHome/blob/main/addressable_lambda/cabinet-light.yaml)
 :-------------------------:|:-------------------------:
-![](https://user-images.githubusercontent.com/25689113/148655637-32b09107-9162-4490-a45f-eb8701f7335e.mov)  |  ![](https://user-images.githubusercontent.com/25689113/148655689-6d87c76c-4f25-4c28-ab43-223c05c54301.mov)
+Home Assistant automation yaml  |  [Stair light motion activation](https://github.com/AndreiRadchenko/ESPHome/blob/main/addressable_lambda/automation.yaml)
 
 <img src="https://user-images.githubusercontent.com/25689113/148655637-32b09107-9162-4490-a45f-eb8701f7335e.mov" width="600"/> <img src="https://user-images.githubusercontent.com/25689113/148655689-6d87c76c-4f25-4c28-ab43-223c05c54301.mov" width="600"/>
 
