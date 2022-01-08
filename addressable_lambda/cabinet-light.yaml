@@ -197,7 +197,7 @@ light:
             };
             
       - addressable_lambda:
-          name: "Rising light"
+          name: "Rise light"
           update_interval: 10ms
           lambda: |-
             static auto TAG = "Rise light";
