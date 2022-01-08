@@ -27,7 +27,7 @@ ESP board and sensors that i'm used in project.
 Parts           |  Description
 -------------------------|-------------------------
 ![](https://user-images.githubusercontent.com/25689113/148658704-cd28fc58-16d5-4422-8831-bf5fc5abab7b.png) | ESP32 dev board pinout           |  
-![](https://github.com/AndreiRadchenko/ESPHome/blob/main/addressable_lambda/automation.yaml)  |  Corresponding Home Assistant automation
+![](https://user-images.githubusercontent.com/25689113/148659048-fd9e5a80-87e2-4306-9672-d50ae9beef7d.jpg)  |  [Sonoff motion (PIR) Sonoff SNZB-03](https://smartlight.me/smart-home-devices/zigbee-devices/pir_sensor_sonoff_snzb-03)
 
 </details>
 
