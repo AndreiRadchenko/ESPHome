@@ -1,0 +1,287 @@
+esphome:
+  name: cabinet-light
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable Home Assistant API
+api:
+
+ota:
+  password: "65c54381758170aa943cc7820549903a"
+
+wifi:
+  ssid: "ASUS"
+  password: "*Password*"
+  manual_ip:
+    static_ip: 192.168.0.34
+    gateway: 192.168.0.1
+    subnet: 255.255.255.0
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Esp32-Test Fallback Hotspot"
+    password: "moG9llRZNGG7"
+
+captive_portal:
+
+logger:
+
+web_server:
+  port: 80
+    
+  # ========GPIO Connection=======
+  
+  # GPIO13 - bedroom light relay
+  # GPIO12 - cabinet light relay
+  # GPIO14 - motion sensor
+  # GPIO5 - bedroom button   
+  # GPIO16 - cabinet button
+  # GPIO23 - Stair Light neopixelbus
+  
+binary_sensor:
+  - platform: gpio
+    id: esphome_bedroom_button
+    pin:
+      number: GPIO5
+      #mode: INPUT
+      mode: INPUT_PULLUP
+      inverted: True
+    on_multi_click:
+    - timing:
+        - ON for at most 1s
+        - OFF for at most 0.3s
+        - ON for at most 1s
+        - OFF for at least 0.2s
+      then:
+      - logger.log: "Double Clicked"
+      - homeassistant.service:
+            service: scene.turn_on
+            data_template:
+                entity_id: scene.bedroom_blind_transparent
+    - timing:
+        - ON for 1s to 2s
+        - OFF for at least 0.2s
+      then:
+      - logger.log: "Single Long Clicked"
+      - homeassistant.service:
+            service: cover.toggle
+            data_template:
+                entity_id: cover.bedroom_blinds 
+    - timing:
+       - ON for at most 1s
+       - OFF for at least 0.2s
+      then:
+      - logger.log: "Single Short Clicked"
+      - light.toggle: esphome_bedroom_light
+    
+  - platform: gpio
+    id: esphome_cabinet_button
+    pin:
+      number: GPIO16
+      #mode: INPUT
+      mode: INPUT_PULLUP
+      inverted: True
+    on_multi_click:
+    - timing:
+        - ON for at most 1s
+        - OFF for at most 0.3s
+        - ON for at most 1s
+        - OFF for at least 0.2s
+      then:
+      - logger.log: "Double Clicked"
+      - homeassistant.service:
+            service: scene.turn_on
+            data_template:
+                entity_id: scene.cabinet_blind_transparent
+    - timing:
+        - ON for 1s to 2s
+        - OFF for at least 0.2s
+      then:
+      - logger.log: "Single Long Clicked"
+      - homeassistant.service: 
+          service: light.toggle
+          data_template:
+            entity_id: light.stair_light
+            effect: Rise light
+    - timing:
+       - ON for at most 1s
+       - OFF for at least 0.2s
+      then:
+      - logger.log: "Single Short Clicked"
+      - light.toggle: esphome_cabinet_light 
+    
+  - platform: gpio
+    pin: GPIO14
+    name: "esphome cabinet motion"
+    id: esphome_cabinet_motion
+    device_class: motion 
+  
+  # GPIO13 - bedroom light relay
+output:
+  - platform: gpio
+    id: esphome_bedroom_relay
+    pin: GPIO13
+    inverted: True
+      
+  # GPIO12 - cabinet light relay
+  - platform: gpio
+    id: esphome_cabinet_relay
+    pin: GPIO12
+    inverted: True
+
+light:
+  - platform: binary
+    id: esphome_bedroom_light
+    name: "esphome bedroom light"
+    restore_mode: ALWAYS_OFF
+    output: esphome_bedroom_relay
+    
+  - platform: binary
+    id: esphome_cabinet_light
+    name: "esphome cabinet light"
+    restore_mode: ALWAYS_OFF
+    output: esphome_cabinet_relay  
+
+ # GPIO23 - Stair Light neopixel
+  - platform: neopixelbus
+    type: GRB
+    variant: WS2811
+    pin: GPIO23
+    num_leds: 149
+    name: "Stair Light"
+    id: "stair_light"
+    effects:                      
+      - addressable_lambda:
+          name: "Falling light"
+          update_interval: 10ms
+          lambda: |-
+            static auto TAG = "Falling light";
+            static uint16_t progress = 0;
+            static uint16_t max_led = 149;
+            static ESPHSVColor mhsv;
+            static ESPHSVColor hsv1;
+            static uint16_t yellowhue = 40;
+            static uint16_t bluehue = 190;
+            mhsv.value = 255;
+            mhsv.saturation = 255;
+            static ESPHSVColor mYellow = ESPHSVColor(yellowhue, mhsv.saturation, mhsv.value);
+            hsv1.value = 250;
+            hsv1.saturation = 250;
+            static ESPHSVColor mBlue = ESPHSVColor(215, mhsv.saturation, mhsv.value);
+            if (initial_run) {
+              progress = 0;
+              it.all() = Color::BLACK;
+              ESP_LOGD(TAG, "initial run");
+              mhsv.hue = yellowhue; //mYellow
+              hsv1.hue = bluehue; //mBlue;
+              ESP_LOGD(TAG, "initial mhsv.hue is: %d", mhsv.hue);
+            }
+            else {
+              //yellow led appear at start of strip and falling down
+              if (progress < it.size()) {
+                it[progress] = mhsv;
+                progress++;
+                //ESP_LOGD(TAG, "increas progress : %d", progress);
+              }
+              //
+              else if (progress == it.size()) {
+                it[progress] = mhsv;
+                //ESP_LOGD(TAG, "next progress : %d", progress);
+              }
+              //when all leds get yellow light, do nothing
+              else {
+                }
+            };
+            
+      - addressable_lambda:
+          name: "Rising light"
+          update_interval: 10ms
+          lambda: |-
+            static auto TAG = "Rise light";
+            static uint16_t progress = 0;
+            static uint16_t max_led = 149;
+            static ESPHSVColor mhsv;
+            static ESPHSVColor hsv1;
+            static uint16_t yellowhue = 40;
+            static uint16_t bluehue = 190;
+            mhsv.value = 255;
+            mhsv.saturation = 255;
+            static ESPHSVColor mYellow = ESPHSVColor(yellowhue, mhsv.saturation, mhsv.value);
+            hsv1.value = 250;
+            hsv1.saturation = 250;
+            static ESPHSVColor mBlue = ESPHSVColor(215, mhsv.saturation, mhsv.value);
+            if (initial_run) {
+              progress = 0;
+              it.all() = Color::BLACK;
+              ESP_LOGD(TAG, "initial run");
+              mhsv.hue = yellowhue; //mYellow
+              hsv1.hue = bluehue; //mBlue;
+              ESP_LOGD(TAG, "initial mhsv.hue is: %d", mhsv.hue);
+            }
+            else {
+              //yellow led appear at the end of strip and rising up
+              if (progress < it.size()) {
+                it[it.size() - progress] = mhsv;
+                progress++;
+                //ESP_LOGD(TAG, "increas progress : %d", progress);
+              }
+              else if (progress == it.size()) {
+                it[0] = mhsv;
+                //ESP_LOGD(TAG, "next progress : %d", progress);
+              }
+              //when all leds get yellow light, do nothing
+              else {
+                }
+            };
+            
+      - addressable_lambda:
+          name: "Blink light"
+          update_interval: 10ms
+          lambda: |-
+            static auto TAG = "Rise light";
+            static uint16_t progress = 0;
+            static uint16_t max_led = 149;
+            static ESPHSVColor mhsv;
+            static ESPHSVColor hsv1;
+            static uint16_t yellowhue = 40;
+            static uint16_t bluehue = 190;
+            mhsv.value = 255;
+            mhsv.saturation = 255;
+            static ESPHSVColor mYellow = ESPHSVColor(yellowhue, mhsv.saturation, mhsv.value);
+            hsv1.value = 250;
+            hsv1.saturation = 250;
+            static ESPHSVColor mBlue = ESPHSVColor(215, mhsv.saturation, mhsv.value);
+            if (initial_run) {
+              progress = 0;
+              it.all() = mYellow.to_rgb();
+              ESP_LOGD(TAG, "initial run");
+              mhsv.hue = yellowhue; //mYellow
+              hsv1.hue = bluehue; //mBlue;
+              ESP_LOGD(TAG, "initial mhsv.hue is: %d", mhsv.hue);
+            }
+            else {
+              //strip change hue a litle, light blink effect when motion detected within occupied interval
+              if (progress < 5) {
+                mhsv.hue += 3;
+                it.all() = mhsv.to_rgb();
+                progress++;
+                //ESP_LOGD(TAG, "increas mhsv.hue : %d", mhsv.hue);
+              }
+              //set hue to initial value
+              else if (progress < 10) {
+                mhsv.hue -= 3;
+                it.all() = mhsv.to_rgb();
+                progress++;
+                //ESP_LOGD(TAG, "next progress : %d", progress);
+              }                  
+              else if (progress == 10) {
+                it.all() = mYellow.to_rgb();
+                progress++;
+                }
+              else {
+              
+              }
+            };     
