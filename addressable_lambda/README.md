@@ -1,7 +1,7 @@
 # Use addressable_lambda effect for stair light
-I'm have setup ESP32 with ESPHome for lightup stair. When motion detected at the bottom of the stair - light rising up, 
-and when you approach to stair from the upper floor - light falling down.
-Exept this, the same ESP32 board, handle motion sensor at the stair base, light relays for cabinet and bedroom main light, and sensor buttons for 
+I have set up ESP32 with ESPHome to lightup stair. When motion is detected at the bottom of the stair - light rises up, 
+and when you approach to stair from the upper floor - light falls down.
+Except this, the same ESP32 board handles motion sensor at the stair base, light relays for cabinet and bedroom main lights, and sensor buttons for 
 this lights toggling.
 
 ## Result Illustration
