@@ -23,7 +23,7 @@ Config file            |  Description
 -------------------------|-------------------------
 [cabinet_light.yaml](https://github.com/AndreiRadchenko/ESPHome/blob/main/addressable_lambda/cabinet-light.yaml) | ESPHome config file           
 [Stair light motion activation](https://github.com/AndreiRadchenko/ESPHome/blob/main/addressable_lambda/automation.yaml)  |  Corresponding Home Assistant automation
-[Schematic diagram](https://github.com/AndreiRadchenko/ESPHome/blob/main/addressable_lambda/Cabinet_light.pdf) | Schematic diagram of project 
+[Cabinet_light.pdf](https://github.com/AndreiRadchenko/ESPHome/blob/main/addressable_lambda/Cabinet_light.pdf) | Schematic diagram of project 
 
 ## Parts
 <details><summary> </summary>
