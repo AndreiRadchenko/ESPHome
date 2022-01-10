@@ -25,8 +25,8 @@ https://user-images.githubusercontent.com/25689113/148655689-6d87c76c-4f25-4c28-
 Config file            |  Description
 -------------------------|-------------------------
 [cabinet_light.yaml](https://github.com/AndreiRadchenko/ESPHome/blob/main/addressable_lambda/cabinet-light.yaml) | файл конфігурації ESPHome            
-[Stair light motion activation](https://github.com/AndreiRadchenko/ESPHome/blob/main/addressable_lambda/automation.yaml)  |  Відповідна автоматизація Home Assistant
-[Schematic diagram](https://github.com/AndreiRadchenko/ESPHome/blob/main/addressable_lambda/Cabinet_light.pdf) | Принципова схема 
+[automation.yaml](https://github.com/AndreiRadchenko/ESPHome/blob/main/addressable_lambda/automation.yaml)  |  Відповідна автоматизація Home Assistant
+[Cabinet_light.pdf](https://github.com/AndreiRadchenko/ESPHome/blob/main/addressable_lambda/Cabinet_light.pdf) | Принципова схема 
 
 ## Складові
 <details><summary> </summary>
