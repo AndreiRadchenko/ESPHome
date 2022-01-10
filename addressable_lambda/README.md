@@ -22,7 +22,7 @@ Corresponding Home Assistant automation (Stair light motion activation) turn on 
 Config file            |  Description
 -------------------------|-------------------------
 [cabinet_light.yaml](https://github.com/AndreiRadchenko/ESPHome/blob/main/addressable_lambda/cabinet-light.yaml) | ESPHome config file           
-[Stair light motion activation](https://github.com/AndreiRadchenko/ESPHome/blob/main/addressable_lambda/automation.yaml)  |  Corresponding Home Assistant automation
+[automation.yaml](https://github.com/AndreiRadchenko/ESPHome/blob/main/addressable_lambda/automation.yaml)  |  Corresponding Home Assistant automation
 [Cabinet_light.pdf](https://github.com/AndreiRadchenko/ESPHome/blob/main/addressable_lambda/Cabinet_light.pdf) | Schematic diagram of project 
 
 ## Parts
