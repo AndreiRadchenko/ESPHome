@@ -36,6 +36,7 @@ Config file            |  Description
 Parts           |  Description
 -------------------------|-------------------------
 ![](https://user-images.githubusercontent.com/25689113/148658704-cd28fc58-16d5-4422-8831-bf5fc5abab7b.png) | ESP32 dev board pinout
+![](https://user-images.githubusercontent.com/25689113/148826076-460cdcab-3112-4e65-b259-8a7a57372665.jpg) |  [Level converter](https://aliexpress.ru/item/4000039891923.html?gclid=CjwKCAiAz--OBhBIEiwAG1rIOt__LgE36QTgDeKzNgaGONAvyxLjPSalt-yexpLlaA8PR2bWy9AKTRoCyQIQAvD_BwE&sku_id=10000000088879366) 
 ![](https://user-images.githubusercontent.com/25689113/148741979-414e8d72-1d6c-4208-8d25-7135871d9eea.jpg) |  [WS2812B Individually Addressable LED Strip Light](https://smartlight.me/adressable-led-strips/adressable-led-strip-ws2812b-60led)
 ![](https://user-images.githubusercontent.com/25689113/148736478-b5593292-0e4d-4a8c-9f08-a343146ac247.jpg)  |  HC-SR501 motion sensor
 ![](https://user-images.githubusercontent.com/25689113/148739631-f663c8cd-52f4-4e50-a663-18b300b02349.jpg) |  [Sonoff motion (PIR) Sonoff SNZB-03](https://smartlight.me/smart-home-devices/zigbee-devices/pir_sensor_sonoff_snzb-03)
