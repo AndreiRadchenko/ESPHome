@@ -30,11 +30,13 @@ Config file            |  Description
 ## Складові
 <details><summary> </summary>
 
-Плата ESP board and sensors that i'm used in project.
+Плата ESP сенсори та інші складові проекту.
 
 Parts           |  Description
 -------------------------|-------------------------
-![](https://user-images.githubusercontent.com/25689113/148658704-cd28fc58-16d5-4422-8831-bf5fc5abab7b.png) | ESP32 dev board pinout           |  
-![](https://user-images.githubusercontent.com/25689113/148659048-fd9e5a80-87e2-4306-9672-d50ae9beef7d.jpg)  |  [Sonoff motion (PIR) Sonoff SNZB-03](https://smartlight.me/smart-home-devices/zigbee-devices/pir_sensor_sonoff_snzb-03)
+![](https://user-images.githubusercontent.com/25689113/148658704-cd28fc58-16d5-4422-8831-bf5fc5abab7b.png) | ESP32 dev board pinout
+![](https://user-images.githubusercontent.com/25689113/148736478-b5593292-0e4d-4a8c-9f08-a343146ac247.jpg)  |  HC-SR501 motion sensor
+![](https://user-images.githubusercontent.com/25689113/148739631-f663c8cd-52f4-4e50-a663-18b300b02349.jpg) |  [Sonoff motion (PIR) Sonoff SNZB-03](https://smartlight.me/smart-home-devices/zigbee-devices/pir_sensor_sonoff_snzb-03)
 
 </details>
+
