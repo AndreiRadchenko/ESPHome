@@ -26,6 +26,7 @@ Config file            |  Description
 -------------------------|-------------------------
 [cabinet_light.yaml](https://github.com/AndreiRadchenko/ESPHome/blob/main/addressable_lambda/cabinet-light.yaml) | файл конфігурації ESPHome            
 [Stair light motion activation](https://github.com/AndreiRadchenko/ESPHome/blob/main/addressable_lambda/automation.yaml)  |  Відповідна автоматизація Home Assistant
+[Schematic diagram](https://github.com/AndreiRadchenko/ESPHome/blob/main/addressable_lambda/Cabinet_light.pdf) | Принципова схема 
 
 ## Складові
 <details><summary> </summary>
@@ -34,11 +35,9 @@ Config file            |  Description
 
 Parts           |  Description
 -------------------------|-------------------------
-![](https://github.com/AndreiRadchenko/ESPHome/files/7840590/Cabinet_light.pdf) | Schematic diagram
 ![](https://user-images.githubusercontent.com/25689113/148658704-cd28fc58-16d5-4422-8831-bf5fc5abab7b.png) | ESP32 dev board pinout
 ![](https://user-images.githubusercontent.com/25689113/148741979-414e8d72-1d6c-4208-8d25-7135871d9eea.jpg) |  [WS2812B Individually Addressable LED Strip Light](https://smartlight.me/adressable-led-strips/adressable-led-strip-ws2812b-60led)
 ![](https://user-images.githubusercontent.com/25689113/148736478-b5593292-0e4d-4a8c-9f08-a343146ac247.jpg)  |  HC-SR501 motion sensor
 ![](https://user-images.githubusercontent.com/25689113/148739631-f663c8cd-52f4-4e50-a663-18b300b02349.jpg) |  [Sonoff motion (PIR) Sonoff SNZB-03](https://smartlight.me/smart-home-devices/zigbee-devices/pir_sensor_sonoff_snzb-03)
 
 </details>
-[Cabinet_light.pdf](https://github.com/AndreiRadchenko/ESPHome/files/7840590/Cabinet_light.pdf)
