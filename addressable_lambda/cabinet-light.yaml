@@ -160,34 +160,21 @@ light:
           lambda: |-
             static auto TAG = "Falling light";
             static uint16_t progress = 0;
-            static ESPHSVColor mhsv;
-            static ESPHSVColor hsv1;
-            static uint16_t yellowhue = 40;
-            static uint16_t bluehue = 190;
-            mhsv.value = 255;
-            mhsv.saturation = 255;
-            static ESPHSVColor mYellow = ESPHSVColor(yellowhue, mhsv.saturation, mhsv.value);
-            hsv1.value = 250;
-            hsv1.saturation = 250;
-            static ESPHSVColor mBlue = ESPHSVColor(215, mhsv.saturation, mhsv.value);
+            static ESPHSVColor mYellow = ESPHSVColor(40, 255, 255);
             if (initial_run) {
               progress = 0;
               it.all() = Color::BLACK;
               ESP_LOGD(TAG, "initial run");
-              mhsv.hue = yellowhue; //mYellow
-              hsv1.hue = bluehue; //mBlue;
-              ESP_LOGD(TAG, "initial mhsv.hue is: %d", mhsv.hue);
             }
             else {
               //yellow led appear at start of strip and falling down
               if (progress < it.size()) {
-                it[progress] = mhsv;
+                it[progress] = mYellow;
                 progress++;
                 //ESP_LOGD(TAG, "increas progress : %d", progress);
               }
-              //
               else if (progress == it.size()) {
-                it[progress] = mhsv;
+                it[progress] = mYellow;
                 //ESP_LOGD(TAG, "next progress : %d", progress);
               }
               //when all leds get yellow light, do nothing
@@ -201,17 +188,11 @@ light:
           lambda: |-
             static auto TAG = "Rise light";
             static uint16_t progress = 0;
-            static ESPHSVColor mhsv;
-            mhsv.hue = 40;
-            mhsv.value = 255;
-            mhsv.saturation = 255;
-            static ESPHSVColor mYellow = ESPHSVColor(mhsv.hue, mhsv.saturation, mhsv.value);
+            static ESPHSVColor mYellow = ESPHSVColor(40, 255, 255);
             if (initial_run) {
               progress = 0;
               it.all() = Color::BLACK;
               ESP_LOGD(TAG, "initial run");
-              mhsv.hue = 40; //mYellow
-              ESP_LOGD(TAG, "initial mhsv.hue is: %d", mhsv.hue);
             }
             else {
               //yellow led appear at the end of strip and rising up
@@ -221,7 +202,7 @@ light:
                 //ESP_LOGD(TAG, "increas progress : %d", progress);
               }
               else if (progress == it.size()) {
-                it[0] = mhsv;
+                it[0] = mYellow;
                 //ESP_LOGD(TAG, "next progress : %d", progress);
               }
               //when all leds get yellow light, do nothing
@@ -236,15 +217,11 @@ light:
             static auto TAG = "Simple light";
             static uint16_t progress = 0;
             static ESPHSVColor mhsv;
-            mhsv.hue = 40;
-            mhsv.value = 255;
-            mhsv.saturation = 255;
-            static ESPHSVColor mYellow = ESPHSVColor(mhsv.hue, mhsv.saturation, mhsv.value);
+            static ESPHSVColor mYellow = ESPHSVColor(40, 255, 255);
             if (initial_run) {
               progress = 0;
               it.all() = mYellow.to_rgb();
-              ESP_LOGD(TAG, "initial run");
-              mhsv.hue = 40; //mYellow
+              mhsv = mYellow;
               ESP_LOGD(TAG, "initial mhsv.hue is: %d", mhsv.hue);
             }
             else {
