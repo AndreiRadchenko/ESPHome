@@ -160,7 +160,6 @@ light:
           lambda: |-
             static auto TAG = "Falling light";
             static uint16_t progress = 0;
-            static uint16_t max_led = 149;
             static ESPHSVColor mhsv;
             static ESPHSVColor hsv1;
             static uint16_t yellowhue = 40;
@@ -202,29 +201,22 @@ light:
           lambda: |-
             static auto TAG = "Rise light";
             static uint16_t progress = 0;
-            static uint16_t max_led = 149;
             static ESPHSVColor mhsv;
-            static ESPHSVColor hsv1;
-            static uint16_t yellowhue = 40;
-            static uint16_t bluehue = 190;
+            mhsv.hue = 40;
             mhsv.value = 255;
             mhsv.saturation = 255;
-            static ESPHSVColor mYellow = ESPHSVColor(yellowhue, mhsv.saturation, mhsv.value);
-            hsv1.value = 250;
-            hsv1.saturation = 250;
-            static ESPHSVColor mBlue = ESPHSVColor(215, mhsv.saturation, mhsv.value);
+            static ESPHSVColor mYellow = ESPHSVColor(mhsv.hue, mhsv.saturation, mhsv.value);
             if (initial_run) {
               progress = 0;
               it.all() = Color::BLACK;
               ESP_LOGD(TAG, "initial run");
-              mhsv.hue = yellowhue; //mYellow
-              hsv1.hue = bluehue; //mBlue;
+              mhsv.hue = 40; //mYellow
               ESP_LOGD(TAG, "initial mhsv.hue is: %d", mhsv.hue);
             }
             else {
               //yellow led appear at the end of strip and rising up
               if (progress < it.size()) {
-                it[it.size() - progress] = mhsv;
+                it[it.size() - progress] = mYellow;
                 progress++;
                 //ESP_LOGD(TAG, "increas progress : %d", progress);
               }
@@ -238,28 +230,21 @@ light:
             };
             
       - addressable_lambda:
-          name: "Blink light"
+          name: "Simple light"
           update_interval: 10ms
           lambda: |-
-            static auto TAG = "Rise light";
+            static auto TAG = "Simple light";
             static uint16_t progress = 0;
-            static uint16_t max_led = 149;
             static ESPHSVColor mhsv;
-            static ESPHSVColor hsv1;
-            static uint16_t yellowhue = 40;
-            static uint16_t bluehue = 190;
+            mhsv.hue = 40;
             mhsv.value = 255;
             mhsv.saturation = 255;
-            static ESPHSVColor mYellow = ESPHSVColor(yellowhue, mhsv.saturation, mhsv.value);
-            hsv1.value = 250;
-            hsv1.saturation = 250;
-            static ESPHSVColor mBlue = ESPHSVColor(215, mhsv.saturation, mhsv.value);
+            static ESPHSVColor mYellow = ESPHSVColor(mhsv.hue, mhsv.saturation, mhsv.value);
             if (initial_run) {
               progress = 0;
               it.all() = mYellow.to_rgb();
               ESP_LOGD(TAG, "initial run");
-              mhsv.hue = yellowhue; //mYellow
-              hsv1.hue = bluehue; //mBlue;
+              mhsv.hue = 40; //mYellow
               ESP_LOGD(TAG, "initial mhsv.hue is: %d", mhsv.hue);
             }
             else {
