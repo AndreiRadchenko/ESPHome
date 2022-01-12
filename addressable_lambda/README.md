@@ -42,6 +42,7 @@ Parts           |  Description
 ![](https://user-images.githubusercontent.com/25689113/148741979-414e8d72-1d6c-4208-8d25-7135871d9eea.jpg) |  [WS2812B Individually Addressable LED Strip Light](https://smartlight.me/adressable-led-strips/adressable-led-strip-ws2812b-60led)
 ![](https://user-images.githubusercontent.com/25689113/148736478-b5593292-0e4d-4a8c-9f08-a343146ac247.jpg)  |  HC-SR501 motion sensor
 ![](https://user-images.githubusercontent.com/25689113/148739631-f663c8cd-52f4-4e50-a663-18b300b02349.jpg) |  [Sonoff motion (PIR) Sonoff SNZB-03](https://smartlight.me/smart-home-devices/zigbee-devices/pir_sensor_sonoff_snzb-03)
+![](https://user-images.githubusercontent.com/25689113/149129754-0d334b7b-dcc0-420d-accf-fdd66ff94ff3.jpg) |  [Touch sensor module](https://aliexpress.ru/item/32909139021.html?item_id=32909139021&sku_id=12000024137132005&spm=a2g2w.productlist.0.0.5a054d39zrLfWk)
+![](https://user-images.githubusercontent.com/25689113/149130578-cac60d1a-9aa1-45f1-a618-33e2c692a7a6.jpg) |  [Relay 2 chanel module](https://aliexpress.ru/item/33038634587.html?item_id=33038634587&sku_id=67329513676&spm=a2g2w.productlist.0.0.4d5ff55dhoQIV2)
 
 </details>
-
