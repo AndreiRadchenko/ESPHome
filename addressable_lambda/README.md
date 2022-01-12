@@ -10,10 +10,10 @@ https://user-images.githubusercontent.com/25689113/148655637-32b09107-9162-4490-
 
 https://user-images.githubusercontent.com/25689113/148655689-6d87c76c-4f25-4c28-ab43-223c05c54301.mov
 
-Touch sensors on the wall in cabinet and bedroom. Box with esp and relay under the stair. Motion sensor
-attached directly under the esp box, so no long wiring needed.
+Box with esp and relay under the stair. Motion sensor attached directly under the esp box, so no long wiring needed.
+Touch sensors on the wall in cabinet and bedroom. Touch sensor module glued to switch panel.
 
-<img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/addressable_lambda/images/esp_box_and_pir.jpg" width="33%"></img> <img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/addressable_lambda/images/cabinet_touch_sensor.jpg" width="33%"></img> <img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/addressable_lambda/images/bedroom_touch_sensor.jpg" width="33%"></img> 
+<img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/addressable_lambda/images/esp_box_and_pir.jpg" width="24%"></img> <img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/addressable_lambda/images/cabinet_touch_sensor.jpg" width="24%"></img> <img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/addressable_lambda/images/bedroom_touch_sensor.jpg" width="24%"></img> <img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/addressable_lambda/images/touch_sensor.jpg" width="24%"></img> 
 
 ## Config files
 
