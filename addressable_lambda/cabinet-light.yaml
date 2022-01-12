@@ -165,6 +165,7 @@ light:
               progress = 0;
               it.all() = Color::BLACK;
               ESP_LOGD(TAG, "initial run");
+              ESP_LOGD(TAG, "it.size() =  %d", it.size());
             }
             else {
               //yellow led appear at start of strip and falling down
@@ -173,15 +174,11 @@ light:
                 progress++;
                 //ESP_LOGD(TAG, "increas progress : %d", progress);
               }
-              else if (progress == it.size()) {
-                it[progress] = mYellow;
-                //ESP_LOGD(TAG, "next progress : %d", progress);
-              }
               //when all leds get yellow light, do nothing
               else {
                 }
             };
-            
+      
       - addressable_lambda:
           name: "Rise light"
           update_interval: 10ms
@@ -197,13 +194,9 @@ light:
             else {
               //yellow led appear at the end of strip and rising up
               if (progress < it.size()) {
-                it[it.size() - progress] = mYellow;
                 progress++;
+                it[it.size() - progress] = mYellow;
                 //ESP_LOGD(TAG, "increas progress : %d", progress);
-              }
-              else if (progress == it.size()) {
-                it[0] = mYellow;
-                //ESP_LOGD(TAG, "next progress : %d", progress);
               }
               //when all leds get yellow light, do nothing
               else {
