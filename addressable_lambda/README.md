@@ -6,9 +6,9 @@ this lights toggling.
 
 ## Result illustration
 
-https://user-images.githubusercontent.com/25689113/148655637-32b09107-9162-4490-a45f-eb8701f7335e.mov
+Watch on youtube:
 
-https://user-images.githubusercontent.com/25689113/148655689-6d87c76c-4f25-4c28-ab43-223c05c54301.mov
+[![Watch on youtube](https://img.youtube.com/vi/obBydwlSV4Y/0.jpg)](https://youtu.be/obBydwlSV4Y)
 
 Box with esp and relay under the stair. Motion sensor attached directly under the esp box, so no long wiring needed.
 Touch sensors on the wall in cabinet and bedroom. Touch sensor module glued to switch panel.
