@@ -6,7 +6,9 @@
 
 ## Кінцевий результат
 
-[![Кінцевий результат](https://img.youtube.com/vi/obBydwlSV4Y/0.jpg)](https://youtu.be/obBydwlSV4Y)
+Watch on youtube:
+
+[![Watch on youtube](https://img.youtube.com/vi/obBydwlSV4Y/0.jpg)](https://youtu.be/obBydwlSV4Y)
 
 Коробка з ESP і модулем реле розташована під сходинками. Датчик руху прикріплений безпосередньо на коробку, немає
 необхідності в довгому кабелі для нього. Сенсори дотику на стінах в кабінеті і спальні. Модуль сенсору дотику приклеєний
