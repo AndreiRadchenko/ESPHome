@@ -10,3 +10,7 @@ wifi:
 wifi_ssid: you_wifi_ssid
 wifi_password: you_wifi_password
 ```
+Потім на сторінці ESPHome в правому верхньому куті потрібно відкрити вікно  SECRETS і ввести наступний рядок
+```yaml
+<<: !include ../secrets.yaml
+```
