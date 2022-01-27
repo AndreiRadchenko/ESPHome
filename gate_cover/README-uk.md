@@ -14,3 +14,4 @@ wifi_password: you_wifi_password
 ```yaml
 <<: !include ../secrets.yaml
 ```
+<img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/gate_cover/images/esphome_secrets.png" width="100%"></img> 
