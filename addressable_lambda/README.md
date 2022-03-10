@@ -46,3 +46,7 @@ Parts           |  Description
 ![](https://user-images.githubusercontent.com/25689113/149130578-cac60d1a-9aa1-45f1-a618-33e2c692a7a6.jpg) |  [Relay 2 chanel module](https://aliexpress.ru/item/33038634587.html?item_id=33038634587&sku_id=67329513676&spm=a2g2w.productlist.0.0.4d5ff55dhoQIV2)
 
 </details>
+
+If my work has been useful to you, I would be grateful for your support:
+
+<a href="https://www.buymeacoffee.com/andriiradchenko" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
