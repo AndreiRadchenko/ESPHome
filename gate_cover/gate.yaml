@@ -1,0 +1,107 @@
+esphome:
+  name: gate
+
+esp8266:
+  board: esp01_1m
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+  password: "fdce312b96f0fc3ab549abe9195a3282"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  #manual_ip:
+  #  static_ip: 192.168.0.30
+  #  gateway: 192.168.0.1
+  #  subnet: 255.255.255.0
+    
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Gate"
+    password: "123qweASD"
+
+captive_portal:
+#navigate to http://192.168.4.1/ manually in your browser.
+
+#web_server:
+#  port: 80
+
+  # ========GPIO Connection=======
+  
+  # GPIO0 - Sonoff Basic Button
+  # GPIO12 - Gate Relay
+  # GPIO1 - not used (TX)
+  # GPIO3 - Door sensor (RX)
+  # GPIO13 - Green led inverted
+  # GPIO2 - Can't use as input. Board does not boot when GPIO2 pulled down
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO0
+      mode:
+        input: true
+        pullup: true
+      inverted: true
+    name: "Gate Button1"
+    internal: true
+    on_press:
+      then:
+        - switch.turn_on: relay
+        - delay: 1s
+        - switch.turn_off: relay
+        - logger.log: Gate Button1 Pressed
+      
+  - platform: gpio    
+    pin:
+      number: GPIO3
+      mode:
+        input: true
+        pullup: true
+    name: "Gate Open Sensor"
+    id: "gate_open_sensor"
+    device_class: door
+    filters:
+      - delayed_on: 2s
+
+switch:
+  - platform: gpio
+    name: "Gate Relay"
+    pin: GPIO12
+    id: relay
+    internal: true
+    
+button:
+  - platform: template
+    name: "Gate Button2"
+    id: "gate_button2"
+    internal: true
+    on_press:
+      then:
+        - switch.turn_on: relay
+        - delay: 1s
+        - switch.turn_off: relay
+        - logger.log: Gate Button2 Pressed
+        
+cover:
+  - platform: template
+    name: "Gate"
+    device_class: gate
+    lambda: |-
+      if (id(gate_open_sensor).state) {
+        return COVER_OPEN;
+      } else {
+        return COVER_CLOSED;
+      }
+    open_action:
+      - button.press: gate_button2
+    close_action:
+      - button.press: gate_button2
+    stop_action:
+      - button.press: gate_button2
