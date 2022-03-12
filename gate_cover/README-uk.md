@@ -1,3 +1,12 @@
+# Інтеграція автоматичних воріт в Home Assistant і HomeKit
+Автоматичні ворота, що відкриваються радіо брелком, як правило мають на платі управління GPIO виводи для альтернативного управління відкриттям. 
+
+## Result illustration
+
+Watch on youtube:
+
+[![Watch on youtube](https://img.youtube.com/vi/-kzQXVCUmVY/0.jpg)](https://youtu.be/-kzQXVCUmVY)
+
 Прошивка посилається на 
 ~~~yaml
 wifi:
