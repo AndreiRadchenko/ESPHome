@@ -29,6 +29,10 @@ Watch on youtube:
 
 ## ESPHome config file
 
+Config file            |  Description
+-------------------------|-------------------------
+[gate.yaml](https://github.com/AndreiRadchenko/ESPHome/blob/main/gate_cover/gate.yaml) | ESPHome config file   
+
 Прошивка посилається на 
 ~~~yaml
 wifi:
@@ -47,13 +51,30 @@ wifi_password: you_wifi_password
 ```
 <img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/gate_cover/images/esphome_secrets.png" width="100%"></img> 
 
+Після прошивки Sonoff Basic файлом конфігурації `gate.yaml`, ESPHome автоматично додасть в Home Assistant сутність `Gate` типу `cover`, зі всіма сервісами 
+і властивостями. Залишиться тільки додати картку чи кнопку в Lovelase або прокинути через брідж в HomeKit. Нижче снапшот `configuration.yaml` 
+в якому в HomeKit додаються створені нами в ESPHome сенсор відкриття воріт і власне сутність воріт.
+
+``` yaml
+homekit:
+  - filter:
+      include_domains:
+        - light
+        - media_player
+      include_entities:
+        - binary_sensor.gate_open_sensor
+        - cover.gate
+```
+
+<img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/gate_cover/images/HomeKit-Gate.jpg" width="30%"></img> 
+
 ## Parts
 <details><summary> </summary>
 
 Parts           |  Description
 -------------------------|-------------------------
 ![](https://github.com/AndreiRadchenko/ESPHome/blob/main/gate_cover/images/SONOFF_BASIC_R2_01.jpg) |  [Sonoff Basic R2](https://www.amazon.com/Wireless-Universal-Automation-Solution-Assistant/dp/B07KP8THFG/ref=sr_1_1_sspa?crid=1UOCYPNP8HKOL&keywords=sonoff+basic+r2&qid=1647099999&s=industrial&sprefix=sonoff+basic%2Cindustrial%2C212&sr=1-1-spons&psc=1) 
-![](https://github.com/AndreiRadchenko/ESPHome/blob/main/gate_cover/images/door-sensor.jpg) |  [Wired magnetic door sensor](https://www.amazon.com/dp/B091GFZYB8/ref=sspa_dk_hqp_detail_aax_0?)
+![](https://github.com/AndreiRadchenko/ESPHome/blob/main/gate_cover/images/wired_magnetic_door_sensor.jpg) |  [Wired magnetic door sensor](https://www.amazon.com/dp/B091GFZYB8/ref=sspa_dk_hqp_detail_aax_0?)
 </details>
 
 If my work has been useful to you, I would be grateful for your support:
