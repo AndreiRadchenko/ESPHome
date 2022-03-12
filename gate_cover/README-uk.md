@@ -25,7 +25,9 @@ Watch on youtube:
 
 Нижче наведено фото реле з герконом на три метровому кабелі перед монтажем на ворота. А також геркон змонтований на ворота.
 
-<img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/gate_cover/images/relay-before-install.jpg" width="32%"></img> <img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/gate_cover/images/gate-with-sensor.jpg" width="32%"></img> <img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/gate_cover/images/door-sensor.jpg" width="32%"></img> </img> 
+<img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/gate_cover/images/relay-before-install.jpg" width="32%"></img> <img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/gate_cover/images/door-sensor.jpg" width="32%"></img> <img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/gate_cover/images/gate-with-sensor.jpg" width="32%"></img> </img> 
+
+## ESPHome config file
 
 Прошивка посилається на 
 ~~~yaml
@@ -44,3 +46,16 @@ wifi_password: you_wifi_password
 <<: !include ../secrets.yaml
 ```
 <img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/gate_cover/images/esphome_secrets.png" width="100%"></img> 
+
+## Parts
+<details><summary> </summary>
+
+Parts           |  Description
+-------------------------|-------------------------
+![](https://github.com/AndreiRadchenko/ESPHome/blob/main/gate_cover/images/SONOFF_BASIC_R2_01.jpg) |  [Sonoff Basic R2](https://www.amazon.com/Wireless-Universal-Automation-Solution-Assistant/dp/B07KP8THFG/ref=sr_1_1_sspa?crid=1UOCYPNP8HKOL&keywords=sonoff+basic+r2&qid=1647099999&s=industrial&sprefix=sonoff+basic%2Cindustrial%2C212&sr=1-1-spons&psc=1) 
+![](https://github.com/AndreiRadchenko/ESPHome/blob/main/gate_cover/images/door-sensor.jpg) |  [Wired magnetic door sensor](https://www.amazon.com/dp/B091GFZYB8/ref=sspa_dk_hqp_detail_aax_0?)
+</details>
+
+If my work has been useful to you, I would be grateful for your support:
+
+<a href="https://www.buymeacoffee.com/andriiradchenko" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
