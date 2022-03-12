@@ -8,14 +8,20 @@ Watch on youtube:
 
 [![Watch on youtube](https://img.youtube.com/vi/-kzQXVCUmVY/0.jpg)](https://youtu.be/-kzQXVCUmVY)
 
+## Hardware preparation
+
 Автоматичні ворота, що відкриваються радіо брелком, як правило мають на платі управління GPIO контакти для альтернативного управління відкриттям.
 Коротке замикання/розмикання контактів призводить до відкриття воріт, якщо вони були в закритому стані, закриття воріт, якщо вони були відкриті і зупинки
 якщо ворота відчинялись чи зачинялись. 
 
 <img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/gate_cover/images/edinger-gpio.jpeg" width="100%"></img> 
 
-Я переробив Sonoff Basic на реле з "сухими" контактами, що дозволило мені скористатися GPIO на платі управління воротами.
-А також додав 
+Я переробив Sonoff Basic на реле з "сухими" контактами, що дозволило мені скористатися GPIO на платі управління воротами. 
+[Інструкція по 
+модернізації Sonoff Basic на реле з "сухими" контактами](https://www.youtube.com/watch?v=zpuJ-BpDvpU&t=8s&ab_channel=jlivinginmadrid)
+А також підключив до контакту RX Sonoff магнітний датчик відкриття для отримання стану воріт.
+
+<img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/addressable_lambda/images/esp_box_and_pir.jpg" width="24%"></img> <img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/addressable_lambda/images/cabinet_touch_sensor.jpg" width="24%"></img> <img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/addressable_lambda/images/bedroom_touch_sensor.jpg" width="24%"></img> <img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/addressable_lambda/images/touch_sensor.jpg" width="24%"></img> 
 
 Прошивка посилається на 
 ~~~yaml
