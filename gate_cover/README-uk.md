@@ -33,6 +33,8 @@ Config file            |  Description
 -------------------------|-------------------------
 [gate.yaml](https://github.com/AndreiRadchenko/ESPHome/blob/main/gate_cover/gate.yaml) | ESPHome config file   
 
+Якщо ви не знаєте як прошити Sonoff, ознайомтеся з цим [розділом на esphome.io](https://esphome.io/devices/sonoff_basic.html)
+
 Прошивка посилається на 
 ~~~yaml
 wifi:
