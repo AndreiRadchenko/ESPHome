@@ -38,7 +38,7 @@ Config file            |  Description
 
 Якщо ви не знаєте як прошити Sonoff, ознайомтеся з цим [розділом на esphome.io](https://esphome.io/devices/sonoff_basic.html)
 
-Прошивка посилається на 
+Підключення до мережі Wi-Fi реалізоване наступним чином: 
 ~~~yaml
 wifi:
   ssid: !secret wifi_ssid
