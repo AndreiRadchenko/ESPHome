@@ -1,11 +1,10 @@
-# Інтеграція автоматичних воріт в Home Assistant, HomeKit і Google Home
-За допомогою реле Sonoff Basic, магнітного датчика дверей і ESPHome я отримав повноцінну інтеграцію автоматичних воріт
-в Home Assistant, HomeKit і Google Home, з відображенням актуального стану. 
+# Automatic gates integration to Home Assistant, HomeKit and Google Home
+With the Sonoff Basic relay, magnetic door sensor and ESPHome, I'm got a full integration of automatic gates
+to Home Assistant, HomeKit and Google Home, with actual state displaying.
 
 ## Result illustration
 
-Нажаль, через війну з російськими фашистами, що спричинили гуманітарну катастрофу в моєму місті, не можу зняти актуальне відео. Тому посилаюся
-на відео зняте кілька років тому.
+Unfortunately, due to the war with the Russian fascists, which caused a humanitarian catastrophe in my city, I cannot shoot a actual video. That's why I'm referring on the video taken a few years ago. 
 
 Watch on youtube:
 
