@@ -13,7 +13,7 @@ Watch on youtube:
 ## Hardware preparation
 
 Automatic gates, opened by a radio key, usually have the GPIO contacts on  control board for alternative opening control.
-Short close/open of contacts leads to opening of gate if they were in the closed state, closing of gate if they were open 
+Short close/open of contacts leads to opening of gate if they were in the closed state, closing of gate if they were open,
 and stop if the gate are opening or closing.
 
 <img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/gate_cover/images/edinger-gpio.jpeg" width="70%"></img> 
