@@ -1,8 +1,11 @@
 # Інтеграція автоматичних воріт в Home Assistant, HomeKit і Google Home
-За допомогою Sonoff Basic, датчика дверей і ESPHome я отримав повноцінну інтеграцію з відображенням актуального стану автоматичних воріт
-в Home Assistant, HomeKit і Google Home. 
+За допомогою реле Sonoff Basic, магнітного датчика дверей і ESPHome я отримав повноцінну інтеграцію автоматичних воріт
+в Home Assistant, HomeKit і Google Home, з відображенням актуального стану. 
 
 ## Result illustration
+
+Нажаль, через війну з російськими фашистами, що спричинили гуманітарну катастрофу в моєму місті, не можу зняти актуальне відео. Тому посилаюся
+на відео зняте кілька років тому.
 
 Watch on youtube:
 
@@ -53,8 +56,75 @@ wifi_password: you_wifi_password
 ```
 <img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/gate_cover/images/esphome_secrets.png" width="100%"></img> 
 
+Крім програмного управління воротами, в файлі конфігурації описана фізична кнопка реле Sonoff. Короткочасне натиснення на неї теж призведе 
+до відкриття, закриття чи зупинки воріт. `binary_sensor.gate_open_sensor` має 2 секундну затримку спрацювання. Вона введена для фільтрації випадкових 
+спрацювань від поривів вітру.
+
+``` yaml
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO0
+      mode:
+        input: true
+        pullup: true
+      inverted: true
+    name: "Gate Button1"
+    internal: true
+    on_press:
+      then:
+        - switch.turn_on: relay
+        - delay: 1s
+        - switch.turn_off: relay
+        - logger.log: Gate Button1 Pressed
+  - platform: gpio    
+    pin:
+      number: GPIO3
+      mode:
+        input: true
+        pullup: true
+    name: "Gate Open Sensor"
+    id: "gate_open_sensor"
+    device_class: door
+    filters:
+      - delayed_on: 2s        
+```
+Сама сутність воріт `cover.gate` реалізована за допомогою шаблонної кнопки `gate_button2`, прихованої з інтерфейсу Home Assistant, шаблону 
+`cover.gate` і вище описаного `binary_sensor.gate_open_sensor`. Шаблонна кнопка в скрипті `on_press` замикає на одну секунду реле, підключене 
+до GPIO контактів плати управління воротами.
+
+``` yaml
+button:
+  - platform: template
+    name: "Gate Button2"
+    id: "gate_button2"
+    internal: true
+    on_press:
+      then:
+        - switch.turn_on: relay
+        - delay: 1s
+        - switch.turn_off: relay
+        - logger.log: Gate Button2 Pressed        
+cover:
+  - platform: template
+    name: "Gate"
+    device_class: gate
+    lambda: |-
+      if (id(gate_open_sensor).state) {
+        return COVER_OPEN;
+      } else {
+        return COVER_CLOSED;
+      }
+    open_action:
+      - button.press: gate_button2
+    close_action:
+      - button.press: gate_button2
+    stop_action:
+      - button.press: gate_button2
+``` 
+
 Після прошивки Sonoff Basic файлом конфігурації `gate.yaml`, ESPHome автоматично додасть в Home Assistant сутність `Gate` типу `cover`, зі всіма сервісами 
-і властивостями. Залишиться тільки додати картку чи кнопку в Lovelase або прокинути через брідж в HomeKit. Нижче снапшот `configuration.yaml` 
+і властивостями. Залишиться тільки додати картку чи кнопку в Lovelace або прокинути через брідж в HomeKit. Нижче снапшот `configuration.yaml` 
 в якому в HomeKit додаються створені нами в ESPHome сенсор відкриття воріт і власне сутність воріт.
 
 ``` yaml
