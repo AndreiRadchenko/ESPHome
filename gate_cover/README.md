@@ -18,14 +18,13 @@ and stop if the gate are opening or closing.
 
 <img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/gate_cover/images/edinger-gpio.jpeg" width="70%"></img> 
 
-Я переробив Sonoff Basic на реле з "сухими" контактами, що дозволило мені скористатися GPIO на платі управління воротами. 
-[Відео по 
-модернізації Sonoff Basic на реле з "сухими" контактами.](https://www.youtube.com/watch?v=zpuJ-BpDvpU&t=8s&ab_channel=jlivinginmadrid)
-А також підключив до контакту RX Sonoff магнітний датчик відкриття для отримання стану воріт.
+I'm modified  Sonoff Basic to a relay with "dry" contacts, which allowed me to use GPIO on the gate control board.
+[Video about modifying Sonoff Basic on a relay with "dry" contacts.](https://www.youtube.com/watch?v=zpuJ-BpDvpU&t=8s&ab_channel=jlivinginmadrid)
+And also, I'm was connect RX Sonoff contact to the magnetic opening sensor to obtain the state of the gate.
 
 <img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/gate_cover/images/sonoff-modification1.jpg" width="70%"></img> 
 
-Нижче наведено фото реле з герконом на три метровому кабелі перед монтажем на ворота. А також геркон змонтований на ворота.
+Below is a photo of a relay with a magnetic door sensor on a three-meter long cable, before mounting on the gate. And the door sensor  mounted on the gate.
 
 <img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/gate_cover/images/relay-before-install.jpg" width="32%"></img> <img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/gate_cover/images/door-sensor.jpg" width="32%"></img> <img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/gate_cover/images/gate-with-sensor.jpg" width="32%"></img> </img> 
 
