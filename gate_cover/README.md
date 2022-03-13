@@ -1,10 +1,10 @@
-# Automatic gates integration to Home Assistant, HomeKit and Google Home
-With the Sonoff Basic relay, magnetic door sensor and ESPHome, I'm got a full integration of automatic gates
-to Home Assistant, HomeKit and Google Home, with actual state displaying.
+# Automatic gate integration for Home Assistant, HomeKit and Google Home
+With the Sonoff Basic relay, magnetic door sensor and ESPHome, I'm got a full integration of automatic gate
+for Home Assistant, HomeKit and Google Home, with actual state displaying.
 
 ## Result illustration
 
-Unfortunately, due to the war with the Russian fascists, which caused a humanitarian catastrophe in my city, I cannot shoot a actual video. That's why I'm referring on the video taken a few years ago. 
+Unfortunately, due to the war with the Russian fascists, which caused a humanitarian catastrophe in my town, I cannot shoot a actual video. That's why I'm referring on the video taken a few years ago. 
 
 Watch on youtube:
 
@@ -19,8 +19,8 @@ and stop if the gate are opening or closing.
 <img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/gate_cover/images/edinger-gpio.jpeg" width="70%"></img> 
 
 I'm modified  Sonoff Basic to a relay with "dry" contacts, which allowed me to use GPIO on the gate control board.
-[Video about modifying Sonoff Basic on a relay with "dry" contacts.](https://www.youtube.com/watch?v=zpuJ-BpDvpU&t=8s&ab_channel=jlivinginmadrid)
-And also, I'm was connect RX Sonoff contact to the magnetic opening sensor to obtain the state of the gate.
+[Video about modifying Sonoff Basic to a relay with "dry" contacts.](https://www.youtube.com/watch?v=zpuJ-BpDvpU&t=8s&ab_channel=jlivinginmadrid)
+And also, I'm was connect 'RX' contact of Sonoff Basic to the magnetic opening sensor, to obtain the state of the gate.
 
 <img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/gate_cover/images/sonoff-modification1.jpg" width="70%"></img> 
 
@@ -34,29 +34,27 @@ Config file            |  Description
 -------------------------|-------------------------
 [gate.yaml](https://github.com/AndreiRadchenko/ESPHome/blob/main/gate_cover/gate.yaml) | ESPHome config file   
 
-Якщо ви не знаєте як прошити Sonoff, ознайомтеся з цим [розділом на esphome.io](https://esphome.io/devices/sonoff_basic.html)
+If you don't know how to flash Sonoff, read this [article at esphome.io](https://esphome.io/devices/sonoff_basic.html)
 
-Підключення до мережі Wi-Fi реалізоване наступним чином: 
+Wi-Fi connection is implemented as follows:
 ~~~yaml
 wifi:
   ssid: !secret wifi_ssid
   password: !secret wifi_password
 ~~~
-Відповідні параметри задаються в файлі `secrets.yaml` робочої директорії НА (там де configuratuion.yaml)  
-Для того щоб контролер під'єднався до вашої мережі потрібно в робочій директорії створити файл `secrets.yaml` і задати наступні параметри:
+The corresponding parameters are set in the  `secrets.yaml` file of the working directory (where the configuratuion.yaml located)
+In order  to connect controller to your network, you need to create the `secrets.yaml` file in the working directory and set the following parameters:
 ``` yaml
 wifi_ssid: you_wifi_ssid
 wifi_password: you_wifi_password
 ```
-Потім на сторінці ESPHome в правому верхньому куті потрібно відкрити вікно  SECRETS і ввести наступний рядок
+Then on the ESPHome page in the upper right corner you need to open the SECRETS window and enter the next line:
 ```yaml
 <<: !include ../secrets.yaml
 ```
 <img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/gate_cover/images/esphome_secrets.png" width="100%"></img> 
 
-Крім програмного управління воротами, в файлі конфігурації описана фізична кнопка реле Sonoff. Короткочасне натиснення на неї теж призведе 
-до відкриття, закриття чи зупинки воріт. Стан воріт визначається за допомогою `binary_sensor.gate_open_sensor`, до якого підключений магнітний сенсор дверей. 
-Він має 2 секундну затримку на перехід у стан 'on'. Ця затримка введена для фільтрації випадкових спрацювань від поривів вітру.
+Except the software gate control,  configuration file describes the physical button of the Sonoff relay. A short press on it will result opening, closing or stopping the gate, depending on the initial state. The state of the gate is determined by `binary_sensor.gate_open_sensor`, to which the magnetic door sensor is connected. It has a 2 second delay to be set to 'on' state. This delay is introduced to filter out accidental triggers from gusts of wind.
 
 ``` yaml
 binary_sensor:
@@ -87,7 +85,7 @@ binary_sensor:
     filters:
       - delayed_on: 2s        
 ```
-Сутність воріт `cover.gate` реалізована за допомогою шаблонної кнопки `gate_button2`, прихованої з інтерфейсу Home Assistant.  Шаблонна кнопка в скрипті `on_press` замикає на одну секунду реле з "сухими" контактами, підключене до GPIO плати управління воротами. Шаблон `cover.gate` отримує стан від вище описаного `binary_sensor.gate_open_sensor`.
+The gate entity  `cover.gate` is implemented using the template button `gate_button2`, hidden from the Home Assistant interface. The template button in the `on_press` script, close relay with "dry" contacts for one second. In turn, relay  connected to the GPIO gate control board. The `cover.gate` template gets its state from the` binary_sensor.gate_open_sensor`, that wath described above.
 
 ``` yaml
 button:
