@@ -13,7 +13,7 @@ Watch on youtube:
 ## Hardware preparation
 
 Automatic gates, opened by a radio key, usually have the GPIO contacts on  control board for alternative opening control.
-Short closing / opening of contacts leads to opening of gate if they were in the closed condition, closing of gate if they were open 
+Short close/open of contacts leads to opening of gate if they were in the closed state, closing of gate if they were open 
 and stop if the gate are opening or closing.
 
 <img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/gate_cover/images/edinger-gpio.jpeg" width="70%"></img> 
@@ -117,9 +117,7 @@ cover:
       - button.press: gate_button2
 ``` 
 
-Після прошивки Sonoff Basic файлом конфігурації `gate.yaml`, ESPHome автоматично додасть в Home Assistant сутність `Gate` типу `cover`, зі всіма сервісами 
-і властивостями. Залишиться тільки додати картку чи кнопку в Lovelace або прокинути через брідж в HomeKit. Нижче снапшот `configuration.yaml` 
-в якому в HomeKit додаються створені нами в ESPHome сенсор відкриття воріт і власне сутність воріт.
+After flashing Sonoff Basic with the  `gate.yaml` config file, ESPHome will automatically add to the Home Assistant the `Gate` entity of  the `cover` type, with all services and properties. All you have to do is to add a card or button to Lovelace, or throw `Gate` entity through the bridge in HomeKit. Below is a `configuration.yaml` fragment, where `gate_opening_sensor` and `Gate` entity are added to HomeKit bridge.
 
 ``` yaml
 homekit:
