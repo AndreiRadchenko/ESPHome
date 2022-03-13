@@ -12,9 +12,9 @@ Watch on youtube:
 
 ## Hardware preparation
 
-Автоматичні ворота, що відкриваються радіо брелком, як правило мають на платі управління GPIO контакти для альтернативного управління відкриттям.
-Коротке замикання/розмикання контактів призводить до відкриття воріт, якщо вони були в закритому стані, закриття воріт, якщо вони були відкриті і зупинки
-якщо ворота відчинялись чи зачинялись. 
+Automatic gates, opened by a radio key, usually have the GPIO contacts on  control board for alternative opening control.
+Short closing / opening of contacts leads to opening of gate if they were in the closed condition, closing of gate if they were open 
+and stop if the gate are opening or closing.
 
 <img src="https://github.com/AndreiRadchenko/ESPHome/blob/main/gate_cover/images/edinger-gpio.jpeg" width="70%"></img> 
 
