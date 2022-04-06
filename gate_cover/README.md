@@ -36,6 +36,8 @@ Config file            |  Description
 
 If you don't know how to flash Sonoff, read this [article at esphome.io](https://esphome.io/devices/sonoff_basic.html)
 
+If you want to buy the ready for installation relay, flashed with a gate ESPHome config file, and with magnetic sensor, <a href=mailto:d4100kx@gmail.com>please email me.</a> I will be very grateful for you support.
+
 Wi-Fi connection is implemented as follows:
 ~~~yaml
 wifi:
@@ -143,4 +145,4 @@ Parts           |  Description
 
 If my work has been useful to you, I would be grateful for your support:
 
-<a href="https://www.buymeacoffee.com/andriiradchenko" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+<a href="https://www.buymeacoffee.com/andriiradchenko" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a> <a href="https://www.paypal.com/donate/?hosted_button_id=QB42TMLKZ7KAE" target="_blank"><img src="https://github.com/AndreiRadchenko/hassio-webrecognition/blob/main/img/paypal-donation.png" alt="Donate with PayPal" style="height: 60px !important;width: 250px !important;" ></a>
